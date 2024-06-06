@@ -1,2 +1,10 @@
-# data-structures
-Data Structures and Algorithms
+# Data Structures and Algorithms
+
+##### Directory Structure
+```
+├── sorting
+│   ├── BubbleSort.java
+│   ├── InsertionSort.java
+│   ├── SelectionSort.java
+
+```
