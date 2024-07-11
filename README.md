@@ -2,9 +2,27 @@
 
 ##### Directory Structure
 ```
-├── sorting
-│   ├── BubbleSort.java
-│   ├── InsertionSort.java
-│   ├── SelectionSort.java
+├── Sorting
+│   ├── BubbleSort
+│   ├── InsertionSort
+│   ├── SelectionSort
+│   ├── MergeSort
+│   ├── QuickSOrt
+    ├── Playground
+    │   ├── LoadCsv
+    │   ├── MergeSortComparable
+    │   ├── MergeSortComparator
+├── Arrays
+│   ├── MaxAndMinElements
+│   ├── ReverseArray
+│   ├── 
+│   ├── 
+│   ├──  
+├── 
+│   ├── 
+│   ├── 
+│   ├── 
+│   ├── 
+│   ├──    
 
 ```
