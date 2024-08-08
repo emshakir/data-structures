@@ -1,19 +1,18 @@
-package com.ms.data.structures.linked_list;
+package com.ms.data.structures.linked_list.linkedlist;
 
 import java.util.NoSuchElementException;
 
-public class DoublyLinkedList<T> {
+public class LinkedList<T> {
+    private static int size = 0;
+    private Node<T> head;
+    private Node<T> tail;
 
-    private static int size;
-    private DoublyNode<T> head;
-    private DoublyNode<T> tail;
-
-    public DoublyNode<T> getHead() {
+    public Node<T> getHead() {
         return head;
     }
 
     public void addFirst(T data) {
-        DoublyNode<T> newNode = new DoublyNode<>(data);
+        Node<T> newNode = new Node<>(data);
         size++;
 
         if (head == null) {
@@ -21,25 +20,23 @@ public class DoublyLinkedList<T> {
             return;
         }
         newNode.next = head;
-        head.prev = newNode;
         head = newNode;
     }
 
     public void addLast(T data) {
-        if (head == null) {
-            addFirst(data);
-            return;
-        }
-
-        DoublyNode<T> newNode = new DoublyNode<>(data);
+        Node<T> newNode = new Node<>(data);
         size++;
 
+        if (head == null) {
+            head = tail = newNode;
+            return;
+        }
         tail.next = newNode;
-        newNode.prev = tail;
         tail = newNode;
     }
 
     public T removeFirst() {
+
         if (size == 0) {
             throw new NoSuchElementException("Node not found.");
         }
@@ -49,9 +46,7 @@ public class DoublyLinkedList<T> {
             size = 0;
             return data;
         }
-
         head = head.next;
-        head.prev = null;
         size--;
         return data;
     }
@@ -60,13 +55,18 @@ public class DoublyLinkedList<T> {
         if (size == 0) {
             throw new NoSuchElementException("Node not found.");
         }
-
         if (size == 1) {
             return removeFirst();
         }
-        T data = tail.data;
-        tail = tail.prev;
-        tail.next = null;
+        Node<T> tempNode = head;
+        int tempIdx = 0;
+        while (tempIdx < size - 1) {
+            tempNode = tempNode.next;
+            tempIdx++;
+        }
+        T data = tempNode.data;
+        tempNode.next = null;
+        tail = tempNode;
         size--;
         return data;
     }
@@ -81,28 +81,21 @@ public class DoublyLinkedList<T> {
             addLast(data);
             return;
         }
-        DoublyNode<T> newNode = new DoublyNode<>(data);
+
+        Node<T> newNode = new Node<>(data);
         size++;
 
-        DoublyNode<T> tempNode = head;
+        Node<T> tempNode = head;
         int tempIdx = 0;
         while (tempIdx < idx - 1) {
             tempNode = tempNode.next;
             tempIdx++;
         }
-        DoublyNode<T> next = tempNode.next;
-        newNode.next = next;
-        newNode.prev = tempNode;
+        newNode.next = tempNode.next;
         tempNode.next = newNode;
-        next.prev = newNode;
     }
 
     public T remove(int idx) {
-
-        if (size == 0) {
-            throw new NoSuchElementException("Node not found.");
-        }
-
         if (idx == 0) {
             return removeFirst();
         }
@@ -111,22 +104,56 @@ public class DoublyLinkedList<T> {
             return removeLast();
         }
 
-        DoublyNode<T> tempNode = head;
+        Node<T> prev = head;
         int tempIdx = 0;
         while (tempIdx < idx - 1) {
-            tempNode = tempNode.next;
+            prev = prev.next;
             tempIdx++;
         }
-        DoublyNode<T> nodeToBeRem = tempNode.next;
-        T data = nodeToBeRem.data;
-        tempNode.next = nodeToBeRem.next;
-        nodeToBeRem.next.prev = tempNode;
+        T data = prev.next.data;
+        prev.next = prev.next.next;
         size--;
         return data;
     }
 
+    public boolean contains(T data) {
+        if (size == 0) {
+            throw new NoSuchElementException("Data not found");
+        }
+
+        Node<T> tempNode = head;
+        while (tempNode != null) {
+            if (tempNode.data == data) {
+                return true;
+            }
+            tempNode = tempNode.next;
+        }
+        return false;
+    }
+
+    public boolean containsRec(T data) {
+        return containsHelper(head, data);
+    }
+
+    private boolean containsHelper(Node<T> node, T data) {
+
+        if (node == null) {
+            return false;
+        }
+
+        if (node.data == data) {
+            return true;
+        }
+
+        return containsHelper(node.next, data);
+    }
+
+    public int size() {
+        return size;
+    }
+
     public void print() {
-        DoublyNode<T> tempNode = head;
+        Node<T> tempNode = head;
         while (tempNode != null) {
             System.out.print(tempNode.data + " -> ");
             tempNode = tempNode.next;
@@ -134,21 +161,29 @@ public class DoublyLinkedList<T> {
         System.out.println("null");
     }
 
-    public void printTail() {
-        DoublyNode<T> tempNode = tail;
-        while (tempNode != null) {
-            System.out.print(tempNode.data + " -> ");
-            tempNode = tempNode.prev;
-        }
-        System.out.println("null");
-    }
-
-    public void print(DoublyNode<T> head) {
-        DoublyNode<T> tempNode = head;
+    public void print(Node<T> head) {
+        Node<T> tempNode = head;
         while (tempNode != null) {
             System.out.print(tempNode.data + " -> ");
             tempNode = tempNode.next;
         }
         System.out.println("null");
     }
+
+    public void reverse() {
+
+        Node<T> curr = tail = head;
+        Node<T> prev = null;
+        Node<T> next = null;
+
+        while (curr != null) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        head = prev;
+    }
+
+
 }

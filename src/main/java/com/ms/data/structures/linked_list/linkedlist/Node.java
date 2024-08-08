@@ -1,9 +1,9 @@
-package com.ms.data.structures.linked_list;
+package com.ms.data.structures.linked_list.linkedlist;
 
 public class Node<T> {
 
-    T data;
-    Node<T> next;
+    public T data;
+    public Node<T> next;
 
     public Node() {
     }

@@ -1,10 +1,10 @@
-package com.ms.data.structures.linked_list;
+package com.ms.data.structures.linked_list.linkedlist;
 
 public class DoublyNode<T> {
 
-    T data;
-    DoublyNode<T> next;
-    DoublyNode<T> prev;
+    public T data;
+    public DoublyNode<T> next;
+    public DoublyNode<T> prev;
 
     public DoublyNode(T data) {
         this.data = data;

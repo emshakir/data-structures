@@ -1,5 +1,7 @@
 package com.ms.data.structures.linked_list;
 
+import com.ms.data.structures.linked_list.linkedlist.Node;
+
 public class FindMiddleNode {
 
     public Node<Integer> getMiddleNode(Node<Integer> head) {
