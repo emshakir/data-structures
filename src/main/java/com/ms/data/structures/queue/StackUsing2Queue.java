@@ -34,4 +34,34 @@ public class StackUsing2Queue {
         }
         return Q1.peek();
     }
+
+    // Method 2 - add -> O(1), pop() and peek() -> O(N)
+    public void _add(int data) {
+        Q1.add(data);
+    }
+
+    public int _remove() {
+        if (Q1.isEmpty()) {
+            throw new NoSuchElementException("Queue is empty");
+        }
+
+        while (Q1.size() != 1) {
+            Q2.offer(Q1.remove());
+        }
+
+        int data = Q1.remove();
+        Queue<Integer> tempQ = Q2;
+        Q2 = Q1;
+        Q1 = tempQ;
+        return data;
+    }
+
+    public int _peek() {
+        if (Q1.isEmpty()) {
+            throw new NoSuchElementException("Queue is empty");
+        }
+        int data = _remove();
+        Q1.offer(data);
+        return data;
+    }
 }
