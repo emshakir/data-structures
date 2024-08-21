@@ -15,7 +15,7 @@ public class RemoveNthNodeFromLast {
             size++;
         }
 
-        if (size == 1) {
+        if (size == 1 || idx == size) {
             head = head.next;
             return head;
         }

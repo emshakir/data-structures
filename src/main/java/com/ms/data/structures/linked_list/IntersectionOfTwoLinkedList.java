@@ -69,7 +69,7 @@ public class IntersectionOfTwoLinkedList {
             head2 = head2.next;
         }
 
-        return head1;
+        return null;
 
     }
 

@@ -3,7 +3,7 @@ package com.ms.data.structures.linked_list;
 public class RotateLinkedListByK {
 
 
-    public ListNode rotateRight(ListNode head, int k) {
+    public ListNode rotateLeft(ListNode head, int k) {
 
         int length = 1;
         ListNode temp = head;
@@ -27,7 +27,7 @@ public class RotateLinkedListByK {
 
     }
 
-    public ListNode rotateLeft(ListNode head, int k) {
+    public ListNode rotateRight(ListNode head, int k) {
         if (head == null || head.next == null || k <= 0) {
             return head;
         }

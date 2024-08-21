@@ -16,6 +16,7 @@ public class RemoveDuplicatesSorted {
 
     // 0 0 1 2 3 3 4
     // 0 1 2 3 4
+
     public int removeDuplicatesOt(int[] nums) {
         int i = 1;
         for (int j = 1; j < nums.length; j++) {
