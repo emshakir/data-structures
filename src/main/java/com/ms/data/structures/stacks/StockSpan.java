@@ -36,4 +36,36 @@ public class StockSpan {
         }
         return result;
     }
+
+    public int[] stockSpanBetterOther(int[] A) {
+        int[] result = new int[A.length];
+        Stack<Integer> stack = new Stack<>();
+        for (int currentDayIdx = 0; currentDayIdx < A.length; currentDayIdx++) {
+
+            while (!stack.isEmpty() && A[currentDayIdx] >= A[stack.peek()]) {
+                stack.pop();
+            }
+            int previousDayIdx = (stack.isEmpty()) ? -1 : stack.peek();
+            result[currentDayIdx] = currentDayIdx - previousDayIdx;
+            stack.push(currentDayIdx);
+
+        }
+        return result;
+    }
+
+    public int[] stockSpanBetterOther1(int[] A) {
+        int[] result = new int[A.length];
+        Stack<Integer> stack = new Stack<>();
+        for (int currentDayIdx = 0; currentDayIdx < A.length; currentDayIdx++) {
+
+            while (!stack.isEmpty() && A[currentDayIdx] >= A[stack.peek()]) {
+                stack.pop();
+            }
+            int previousDayIdx = (stack.isEmpty()) ? -1 : stack.peek();
+            result[currentDayIdx] = currentDayIdx - previousDayIdx;
+            stack.push(currentDayIdx);
+
+        }
+        return result;
+    }
 }
