@@ -7,38 +7,38 @@ import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class NextSmallerElementTest {
+class PreviousSmallerElementTest {
 
-    NextSmallerElement nextSmallerElement;
+    PreviousSmallerElement previousSmallerElement;
 
     @BeforeEach
     void setUp() {
-        nextSmallerElement = new NextSmallerElement();
+        previousSmallerElement = new PreviousSmallerElement();
     }
 
     @Test
-    void nextSmallerForwardIteration() {
+    void previousSmallerElement() {
         int[] input = {4, 5, 2, 10, 8};
         int[] expected = {-1, 4, -1, 2, 2};
-        int[] actual = nextSmallerElement.nextSmallerForwardIteration(input);
+        int[] actual = previousSmallerElement.previousSmallerElement(input);
         System.out.println(Arrays.toString(actual));
         assertArrayEquals(expected, actual);
     }
 
     @Test
-    void nextSmallerReverseIteration() {
+    void previousSmallerReverseIteration() {
         int[] input = {4, 5, 2, 10, 8};
         int[] expected = {-1, 4, -1, 2, 2};
-        int[] actual = nextSmallerElement.nextSmallerReverseIteration(input);
+        int[] actual = previousSmallerElement.previousSmallerReverseIteration(input);
         System.out.println(Arrays.toString(actual));
         assertArrayEquals(expected, actual);
     }
 
     @Test
-    void nextSmallerCircle() {
+    void previousSmallerCircle() {
         int[] input = {4, 5, 2, 10, 8};
         int[] expected = {2, 4, -1, 2, 2};
-        int[] actual = nextSmallerElement.nextSmallerCircle(input);
+        int[] actual = previousSmallerElement.previousSmallerCircle(input);
         System.out.println(Arrays.toString(actual));
         assertArrayEquals(expected, actual);
     }

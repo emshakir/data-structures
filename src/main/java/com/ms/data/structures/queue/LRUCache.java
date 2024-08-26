@@ -2,7 +2,6 @@ package com.ms.data.structures.queue;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.NoSuchElementException;
 
 public class LRUCache<K, V> {
     int size;

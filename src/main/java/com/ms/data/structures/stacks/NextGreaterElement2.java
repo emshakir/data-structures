@@ -12,7 +12,7 @@ public class NextGreaterElement2 {
         Arrays.fill(result, -1);
         Stack<Integer> stack = new Stack<>();
         for (int i = 0; i < n * 2; i++) {
-            while (!stack.isEmpty() && A[i % n] >= A[stack.peek()]) {
+            while (!stack.isEmpty() && A[i % n] > A[stack.peek()]) {
                 result[stack.pop()] = A[i % n];
             }
             stack.push(i % n);

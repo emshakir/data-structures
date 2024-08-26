@@ -19,7 +19,6 @@ public class NextGreaterElement1 {
 
     public int[] nextGreaterElementBetter(int[] A) {
         int[] result = new int[A.length];
-        Arrays.fill(result, -1);
         Stack<Integer> stack = new Stack<>();
         for (int i = A.length - 1; i >= 0; i--) {
             while (!stack.isEmpty() && A[i] >= A[stack.peek()]) {
@@ -41,7 +40,7 @@ public class NextGreaterElement1 {
         Arrays.fill(result, -1);
         Stack<Integer> stack = new Stack<>();
         for (int i = 0; i < A.length; i++) {
-            while (!stack.isEmpty() && A[i] >= A[stack.peek()]) {
+            while (!stack.isEmpty() && A[i] > A[stack.peek()]) {
                 result[stack.pop()] = A[i];
             }
             stack.push(i);
