@@ -5,7 +5,7 @@ public class IsPalindrome {
 
     public boolean isPalindrome(Node<Character> head) {
 
-        // Get middle Node
+        // Get middle TreeNode
         Node<Character> middle = getMiddleNode(head);
 
         // Reverse second part

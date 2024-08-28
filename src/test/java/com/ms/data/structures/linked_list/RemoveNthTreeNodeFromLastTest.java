@@ -5,17 +5,15 @@ import com.ms.data.structures.linked_list.linkedlist.Node;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-class FindMiddleNodeTest {
+class RemoveNthTreeNodeFromLastTest {
 
     LinkedList<Integer> linkedList;
 
-    FindMiddleNode findMiddleNode;
+    RemoveNthNodeFromLast removeNthNodeFromLast;
 
     @BeforeEach
     void setUp() {
-        findMiddleNode = new FindMiddleNode();
+        removeNthNodeFromLast = new RemoveNthNodeFromLast();
         linkedList = new LinkedList<>();
         linkedList.addFirst(5);
         linkedList.addFirst(4);
@@ -25,10 +23,20 @@ class FindMiddleNodeTest {
     }
 
     @Test
-    void getMiddleNode() {
+    void remove() {
         Node<Integer> head = linkedList.getHead();
         linkedList.print();
-        Node<Integer> expected = findMiddleNode.getMiddleNode(head);
-        assertEquals(3, expected.data, "Result didn't match.");
+        Node<Integer> expected = removeNthNodeFromLast.remove(head, 1);
+        linkedList.print(expected);
+
+    }
+
+    @Test
+    void removeOp() {
+        Node<Integer> head = linkedList.getHead();
+        linkedList.print();
+        Node<Integer> expected = removeNthNodeFromLast.removeOp(head, 5);
+        linkedList.print(expected);
+
     }
 }

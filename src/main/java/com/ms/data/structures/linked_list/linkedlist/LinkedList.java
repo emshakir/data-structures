@@ -38,7 +38,7 @@ public class LinkedList<T> {
     public T removeFirst() {
 
         if (size == 0) {
-            throw new NoSuchElementException("Node not found.");
+            throw new NoSuchElementException("TreeNode not found.");
         }
         T data = head.data;
         if (size == 1) {
@@ -53,7 +53,7 @@ public class LinkedList<T> {
 
     public T removeLast() {
         if (size == 0) {
-            throw new NoSuchElementException("Node not found.");
+            throw new NoSuchElementException("TreeNode not found.");
         }
         if (size == 1) {
             return removeFirst();

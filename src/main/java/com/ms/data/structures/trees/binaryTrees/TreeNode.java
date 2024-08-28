@@ -1,12 +1,12 @@
 package com.ms.data.structures.trees.binaryTrees;
 
-public class Node {
+public class TreeNode {
 
     int val;
-    Node left;
-    Node right;
+    TreeNode left;
+    TreeNode right;
 
-    public Node(int val) {
+    public TreeNode(int val) {
         this.val = val;
     }
 }

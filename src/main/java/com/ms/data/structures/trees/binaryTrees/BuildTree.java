@@ -7,55 +7,52 @@ public class BuildTree {
 
     public static int idx = 0;
 
-    public static Node buildTreePre(int[] A) {
+    public static TreeNode buildTreePre(int[] A) {
         int element = A[idx++];
         if (element == -1) {
             return null;
         }
-        Node root = new Node(element);
+        TreeNode root = new TreeNode(element);
         root.left = buildTreePre(A);
         root.right = buildTreePre(A);
         return root;
     }
 
-    public static Node buildTreeLevel(int[] A) {
+    public static TreeNode buildTreeLevel(int[] A) {
         int i = 0;
-        Queue<Node> q = new LinkedList<>();
-        Node root = new Node(A[i++]);
+        Queue<TreeNode> q = new LinkedList<>();
+        TreeNode root = new TreeNode(A[i++]);
         q.offer(root);
         while (!q.isEmpty()) {
-            Node current = q.poll();
-            if(A.length == i) {
-                break;
-            }
+            TreeNode current = q.poll();
+//            if (A.length == i) break;
             int leftNodeVal = A[i++];
             if (leftNodeVal != -1) {
-                Node leftNode = new Node(leftNodeVal);
-                q.offer(leftNode);
-                current.left = leftNode;
+                TreeNode leftTreeNode = new TreeNode(leftNodeVal);
+                q.offer(leftTreeNode);
+                current.left = leftTreeNode;
             }
 
             int rightNodeVal = A[i++];
             if (rightNodeVal != -1) {
-                Node rightNode = new Node(rightNodeVal);
-                q.offer(rightNode);
-                current.right = rightNode;
+                TreeNode rightTreeNode = new TreeNode(rightNodeVal);
+                q.offer(rightTreeNode);
+                current.right = rightTreeNode;
             }
         }
-        printLevelLn(root);
         return root;
     }
 
-    public static void printLevelLn(Node root) {
+    public static void printLevelLn(TreeNode root) {
         if (root == null) {
             System.out.println("No tree present!!");
             return;
         }
-        Queue<Node> q = new LinkedList<>();
+        Queue<TreeNode> q = new LinkedList<>();
         q.offer(root);
         q.offer(null);
         while (!q.isEmpty()) {
-            Node current = q.poll();
+            TreeNode current = q.poll();
             if (current == null) {
                 if (q.isEmpty()) {
                     break;
@@ -64,35 +61,37 @@ public class BuildTree {
                 System.out.println();
             } else {
                 print(current.val);
-                Node left = current.left;
+                TreeNode left = current.left;
                 if (left != null) {
                     q.offer(left);
                 }
 
-                Node right = current.right;
+                TreeNode right = current.right;
                 if (right != null) {
                     q.offer(right);
                 }
             }
         }
+        System.out.println();
+        System.out.println("~~~~~~~~~~~~~~");
     }
 
-    public static void printLevel(Node root) {
+    public static void printLevel(TreeNode root) {
         if (root == null) {
             return;
         }
-        Queue<Node> q = new LinkedList<>();
+        Queue<TreeNode> q = new LinkedList<>();
         q.offer(root);
         print(root.val);
         while (!q.isEmpty()) {
-            Node curr = q.poll();
-            Node left = curr.left;
+            TreeNode curr = q.poll();
+            TreeNode left = curr.left;
             if (left != null) {
                 print(left.val);
                 q.offer(left);
             }
 
-            Node right = curr.right;
+            TreeNode right = curr.right;
             if (right != null) {
                 print(right.val);
                 q.offer(right);
