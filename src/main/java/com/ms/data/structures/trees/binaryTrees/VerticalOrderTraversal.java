@@ -1,6 +1,7 @@
 package com.ms.data.structures.trees.binaryTrees;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class VerticalOrderTraversal {
 
@@ -75,7 +76,7 @@ public class VerticalOrderTraversal {
             list.sort(Comparator.comparing((Node n) -> n.level).thenComparing(n -> n.treeNode.val));
             List<Integer> finalList = list.stream()
                     .map(node -> node.treeNode.val)
-                    .toList();
+                    .collect(Collectors.toList());
             res.add(finalList);
         }
 
@@ -116,7 +117,7 @@ public class VerticalOrderTraversal {
             list.sort(Comparator.comparing((Node n) -> n.level).thenComparing(n -> n.treeNode.val));
             List<Integer> finalList = list.stream()
                     .map(node -> node.treeNode.val)
-                    .toList();
+                    .collect(Collectors.toList());
             res.add(finalList);
         }
 
