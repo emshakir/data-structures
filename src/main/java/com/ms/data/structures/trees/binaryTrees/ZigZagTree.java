@@ -22,7 +22,7 @@ public class ZigZagTree {
                 if(leftToRight) {
                     list.add(top.val);
                 } else {
-                    list.add(0, top.val);
+                    list.addFirst(0, top.val);
                 }
             */
                 int index = leftToRight ? i : (size - 1 - i);

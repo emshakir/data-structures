@@ -3,7 +3,9 @@ package com.ms.data.structures.trees.binaryTrees;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class RecursiveTreeTraversalTest {
+import static org.junit.jupiter.api.Assertions.*;
+
+class UniqueTreeFromPreInTest {
 
     TreeNode root;
 
@@ -16,21 +18,10 @@ class RecursiveTreeTraversalTest {
     }
 
     @Test
-    void preOrder() {
+    void uniqueTreeFromPreIn() {
+        int[] pre = {1, 2, 4, 5, 3, 6, 7};
+        int[] in = {4, 2, 5, 1, 6, 3, 7};
+        TreeNode root = UniqueTreeFromPreIn.uniqueTreeFromPreIn(pre, in);
         BuildTree.printLevelLn(root);
-        System.out.print("Pre Order: ");
-        RecursiveTreeTraversal.preOrder(root);
-    }
-
-    @Test
-    void inOrder() {
-        System.out.print("In Order: ");
-        RecursiveTreeTraversal.inOrder(root);
-    }
-
-    @Test
-    void postOrder() {
-        System.out.print("Post Order: ");
-        RecursiveTreeTraversal.postOrder(root);
     }
 }

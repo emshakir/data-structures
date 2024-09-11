@@ -19,4 +19,13 @@ public class RecursiveTreeTraversal {
         System.out.print(root.val + " ");
         inOrder(root.right);
     }
+
+    public static void postOrder(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        postOrder(root.left);
+        postOrder(root.right);
+        System.out.print(root.val + " ");
+    }
 }

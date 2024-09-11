@@ -21,6 +21,7 @@ public class IterativeTreeTraversal {
             if (left != null) {
                 stack.push(left);
             }
+
         }
         System.out.println();
     }
