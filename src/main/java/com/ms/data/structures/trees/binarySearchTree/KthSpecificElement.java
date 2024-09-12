@@ -25,10 +25,10 @@ public class KthSpecificElement {
         int counter = 0;
         Stack<TreeNode> stack = new Stack<>();
         TreeNode curr = root;
-        while (!stack.isEmpty() || curr != null) {
+        while (curr != null || !stack.isEmpty()) {
 
             while (curr != null) {
-                stack.push(curr.left);
+                stack.push(curr);
                 curr = curr.left;
             }
             curr = stack.pop();
@@ -45,7 +45,6 @@ public class KthSpecificElement {
 
         int counter = 0;
         TreeNode curr = root;
-        TreeNode current = root;
         while (curr != null) {
             if (curr.left == null) {
                 counter += 1;
