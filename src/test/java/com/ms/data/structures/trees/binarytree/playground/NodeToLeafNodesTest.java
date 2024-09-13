@@ -1,17 +1,18 @@
-package com.ms.data.structures.trees.binaryTrees;
+package com.ms.data.structures.trees.binarytree.playground;
+
+
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.ms.data.structures.trees.binarytree.BuildTree;
-import com.ms.data.structures.trees.binarytree.MirrorTree;
 import com.ms.data.structures.trees.binarytree.TreeNode;
 
-import static org.junit.jupiter.api.Assertions.*;
+class NodeToLeafNodesTest {
 
-class MirrorTreeTest {
-
-    TreeNode root;
+	TreeNode root;
 
     @BeforeEach
     void setUp() {
@@ -19,9 +20,13 @@ class MirrorTreeTest {
         root = BuildTree.buildTreeLevel(input);
         System.out.println("~~~~~~~~~~~~~~~");
     }
+    
 
-    @Test
-    void isSymmetric() {
-        MirrorTree.isSymmetric(root);
-    }
+	@Test
+	void test() {
+		BuildTree.printLevelLn(root);
+		List<List<Integer>> ansList =  NodeToLeafNodes.getNodeToLeaf(root, new ArrayList<>(), new ArrayList<>());
+		System.out.println(ansList);
+	}
+
 }

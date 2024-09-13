@@ -2,6 +2,9 @@ package com.ms.data.structures.trees.binaryTrees;
 
 import org.junit.jupiter.api.Test;
 
+import com.ms.data.structures.trees.binarytree.BuildTree;
+import com.ms.data.structures.trees.binarytree.TreeNode;
+
 class BuildTreeTest {
 
     @Test

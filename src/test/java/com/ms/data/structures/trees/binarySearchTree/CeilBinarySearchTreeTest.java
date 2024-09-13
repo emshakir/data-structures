@@ -1,9 +1,11 @@
 package com.ms.data.structures.trees.binarySearchTree;
 
-import com.ms.data.structures.trees.binaryTrees.BuildTree;
-import com.ms.data.structures.trees.binaryTrees.TreeNode;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import com.ms.data.structures.trees.binarytree.BuildTree;
+import com.ms.data.structures.trees.binarytree.TreeNode;
+import com.ms.data.structures.trees.bst.CeilBinarySearchTree;
 
 import static org.junit.jupiter.api.Assertions.*;
 

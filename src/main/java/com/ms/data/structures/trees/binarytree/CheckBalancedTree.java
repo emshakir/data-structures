@@ -1,4 +1,4 @@
-package com.ms.data.structures.trees.binaryTrees;
+package com.ms.data.structures.trees.binarytree;
 
 /**
  * <a href="https://leetcode.com/problems/balanced-binary-tree/description/">Balanced Binary Tree</a>

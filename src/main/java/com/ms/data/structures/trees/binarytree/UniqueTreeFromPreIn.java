@@ -1,4 +1,4 @@
-package com.ms.data.structures.trees.binaryTrees;
+package com.ms.data.structures.trees.binarytree;
 
 import java.util.HashMap;
 import java.util.Map;

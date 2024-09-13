@@ -1,4 +1,4 @@
-package com.ms.data.structures.trees.binaryTrees;
+package com.ms.data.structures.trees.binarytree;
 
 /**
  * <a href="https://leetcode.com/problems/diameter-of-binary-tree/description/">Diameter of Binary Tree</a>
