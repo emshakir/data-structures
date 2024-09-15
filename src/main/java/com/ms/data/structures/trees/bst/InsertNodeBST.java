@@ -1,13 +1,6 @@
-<<<<<<< HEAD:src/main/java/com/ms/data/structures/trees/bst/InsertNodeBST.java
 package com.ms.data.structures.trees.bst;
 
 import com.ms.data.structures.trees.binarytree.TreeNode;
-=======
-package com.ms.data.structures.trees.binarySearchTree;
-
-import com.ms.data.structures.trees.binaryTrees.TreeNode;
->>>>>>> bdb73e8af5396c37971794d0ac34bf4e4d89a491:src/main/java/com/ms/data/structures/trees/binarySearchTree/InsertNodeBST.java
-
 public class InsertNodeBST {
 
     public TreeNode insertIntoBST(TreeNode root, int val) {

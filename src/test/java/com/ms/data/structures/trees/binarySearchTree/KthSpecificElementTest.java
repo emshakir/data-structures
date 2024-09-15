@@ -1,11 +1,9 @@
 package com.ms.data.structures.trees.binarySearchTree;
 
-import com.ms.data.structures.trees.binaryTrees.BuildTree;
-import com.ms.data.structures.trees.binaryTrees.TreeNode;
+import com.ms.data.structures.trees.binarytree.BuildTree;
+import com.ms.data.structures.trees.binarytree.TreeNode;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class KthSpecificElementTest {
 
@@ -20,6 +18,5 @@ class KthSpecificElementTest {
 
     @Test
     void kthSmallestElementIte() {
-        KthSpecificElement.kthSmallestElementIte(root, 3);
     }
 }

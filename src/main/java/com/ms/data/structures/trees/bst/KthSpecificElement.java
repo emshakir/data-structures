@@ -1,7 +1,7 @@
-package com.ms.data.structures.trees.binarySearchTree;
+package com.ms.data.structures.trees.bst;
 
 import com.ms.data.structures.stacks.Stack;
-import com.ms.data.structures.trees.binaryTrees.TreeNode;
+import com.ms.data.structures.trees.binarytree.TreeNode;
 
 public class KthSpecificElement {
 
