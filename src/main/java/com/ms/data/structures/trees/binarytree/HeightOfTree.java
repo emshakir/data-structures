@@ -2,6 +2,7 @@ package com.ms.data.structures.trees.binarytree;
 
 import java.util.Deque;
 import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * <a href="https://leetcode.com/problems/maximum-depth-of-binary-tree/description/">104. Maximum Depth of Binary Tree</a>
@@ -54,18 +55,18 @@ public class HeightOfTree {
 
     public static int getHeightBFS(TreeNode root) {
         int maxDepth = 0;
-        Deque<TreeNode> stack = new LinkedList<>();
-        stack.push(root);
+        Queue<TreeNode> stack = new LinkedList<>();
+        stack.add(root);
         while (!stack.isEmpty()) {
             int size = stack.size();
             for (int i = 0; i < size; i++) {
-                TreeNode top = stack.pop();
+                TreeNode top = stack.poll();
                 if (top.left != null) {
-                    stack.push(top.left);
+                    stack.add(top.left);
                 }
 
                 if (top.right != null) {
-                    stack.push(top.right);
+                    stack.add(top.right);
                 }
             }
             maxDepth++;

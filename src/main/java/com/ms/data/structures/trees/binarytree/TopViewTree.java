@@ -64,9 +64,7 @@ public class TopViewTree {
             }
         }
 
-        for (int k : map.keySet()) {
-            res.add(map.get(k));
-        }
+        res.addAll(map.values());
 
         return res;
     }

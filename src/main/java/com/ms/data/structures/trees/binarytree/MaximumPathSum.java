@@ -20,34 +20,5 @@ public class MaximumPathSum {
         int currMax = root.val + left + right;
         max[0] = Math.max(max[0], currMax);
         return root.val + Math.max(left, right);
-    }
-
-    public static int maxPathSumOther(TreeNode root) {
-        Pair result = maxPathSumOtherHelper(root);
-        return result.sum;
-    }
-
-    private static Pair maxPathSumOtherHelper(TreeNode root) {
-        if (root == null) {
-            Pair res = new Pair(Integer.MIN_VALUE, 0);
-            return res;
-        }
-        Pair left = maxPathSumOtherHelper(root.left);
-        Pair right = maxPathSumOtherHelper(root.right);
-        int currSum = root.val + left.nodeValue + right.nodeValue;
-        int maxSum = Math.max(Math.max(0, currSum), Math.max(left.sum, right.sum));
-        int currNode = root.val + Math.max(left.nodeValue, right.nodeValue);
-        Pair res = new Pair(maxSum, currNode);
-        return res;
-    }
-
-    static class Pair {
-        int sum;
-        int nodeValue;
-
-        public Pair(int sum, int nodeValue) {
-            this.sum = sum;
-            this.nodeValue = nodeValue;
-        }
-    }
+}
 }
