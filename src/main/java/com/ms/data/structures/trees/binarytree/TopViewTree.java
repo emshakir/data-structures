@@ -55,12 +55,12 @@ public class TopViewTree {
             if (!map.containsKey(vertex)) {
                 map.put(vertex, node.val);
             }
-            if (top.treeNode.left != null) {
-                q.add(new Node(top.treeNode.left, vertex - 1));
+            if (node.left != null) {
+                q.add(new Node(node.left, vertex - 1));
             }
 
-            if (top.treeNode.right != null) {
-                q.add(new Node(top.treeNode.right, vertex + 1));
+            if (node.right != null) {
+                q.add(new Node(node.right, vertex + 1));
             }
         }
 

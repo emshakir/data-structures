@@ -6,6 +6,41 @@ import java.util.*;
 
 public class VerticalOrderTraversal {
 
+    public List<List<Integer>> getVerticalNodesV2(TreeNode root) {
+        List<List<Integer>> result = new ArrayList<>();
+        if (root == null) {
+            return result;
+        }
+        Map<Integer, List<Node>> map = new TreeMap<>();
+        Queue<Node> q = new LinkedList<>();
+        q.add(new Node(root, 0, 0));
+        while (!q.isEmpty()) {
+            Node top = q.poll();
+            TreeNode treeNode = top.treeNode;
+            int vertex = top.vertex;
+            int level = top.level;
+            map.putIfAbsent(vertex, new ArrayList<>());
+            map.get(vertex).add(top);
+
+            if (treeNode.left != null) {
+                q.add(new Node(treeNode.left, vertex - 1, level + 1));
+            }
+
+            if (treeNode.right != null) {
+                q.add(new Node(treeNode.right, vertex + 1, level + 1));
+            }
+
+        }
+
+        for (List<Node> nodes : map.values()) {
+            nodes.sort(Comparator.comparingInt((Node node) -> node.level).thenComparingInt(node -> node.treeNode.val));
+            List<Integer> nodesList = nodes.stream()
+                    .map(node -> node.treeNode.val)
+                    .toList();
+            result.add(nodesList);
+        }
+        return result;
+    }
 
     public List<List<Integer>> getVerticalNodes(TreeNode root) {
         if (root == null) {
@@ -24,11 +59,11 @@ public class VerticalOrderTraversal {
             map.get(vertex).get(level).add(root.val);
 
             if (treeNode.left != null) {
-                q.add(new Node(root.left, vertex - 1, level + 1));
+                q.add(new Node(treeNode.left, vertex - 1, level + 1));
             }
 
             if (treeNode.right != null) {
-                q.add(new Node(root.right, vertex + 1, level + 1));
+                q.add(new Node(treeNode.right, vertex + 1, level + 1));
             }
 
         }
